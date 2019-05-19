@@ -1,2 +1,5 @@
 # Required on all code changes
 * @thibmaek @easybird @maartenderoeck
+
+# Required against Javascript related RFC
+*.js @inthepocket/hubble-team
