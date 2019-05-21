@@ -7,6 +7,10 @@ We believe in Hubble as an open source effort, but to make this possible we need
 
 Thank you ✨
 
+## Code of Conduct
+
+Please do not violate the [Code of Conduct](https://github.com/inthepocket/hubble-oss-launchpad/blob/master/CODE-OF-CONDUCT.md)
+
 ## Git guidelines
 
 - Familiarize yourself to [Git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) and please adhere to it.

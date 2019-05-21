@@ -4,9 +4,7 @@ This repository contains all information, resources, RFC, and other documents an
 
 ## Contribution tools:
 
-- [Contribution guidelines](./CONTRIBUTING.md)
-
-## Meeting notes
+- [Code of Conduct](https://github.com/inthepocket/hubble-oss-launchpad/blob/master/CODE-OF-CONDUCT.md)
 
 ## RFCs
 
