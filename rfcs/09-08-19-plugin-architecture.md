@@ -96,3 +96,9 @@ export default CustomPlugin;
 - Peer dependencies can not be declared. When we build our Electron application, the base Node runtime and any project dependencies are bundle inside the application and minified into 1 JS bundle. This means that we can not import modules in the plugin and rely on the fact that they are available from the main application. Plugins would be responsible for creating a bundle themselves that bundle those dependencies and the Hubble.app loads that bundle.
   - This means that, since plugins would heavily rely on React + Electron, we would need to pass those modules to the plugin via our Hubble API.
 - Possible security flaws where plugins could cause harm to the application. Not identified yet.
+- Introduce log level in application so we omit logs emitted from plugins when running in development
+
+### Prior art / resources
+
+- [davideicardi/live-plugin-manager](https://github.com/davideicardi/live-plugin-manager)
+- [kanekotic/electron-plugin](https://github.com/kanekotic/electron-plugin#readme)
