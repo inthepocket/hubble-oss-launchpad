@@ -1,0 +1,56 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/inthepocket/plantuml-styles/master/styles.plantuml!0
+
+title "Hubble Plugin Architecture"
+autonumber
+
+actor "User" as user
+
+participant "Hubble.app" as app
+participant "hubble-cli" as scripts
+participant "Plugin" as plugin
+
+== Register Plugin ==
+user->app: Start app
+
+activate app
+  note left of app: Plugin dir: __<appdata>/Plugins__
+  app->app: List plugins from dir
+  alt plugin = archive
+    app->app: unpack plugin
+    app->app: read files from dir
+  else plugin = dir
+    app->app: read files from dir
+  end
+  app->>app: Load plugin JS module
+  app->plugin: Pass APIs as arguments to plugin fn
+  note left of plugin
+    <b>Provides plugin with APIs</b>:
+    * Hubble: interact with UI (React)
+    * Electron: interact with BrowserWindow
+  endnote
+deactivate app
+
+== Preferences API ==
+activate plugin
+  plugin->app: Add UI to Preferences
+deactivate plugin
+user->app: Set plugin preferences
+app->app: Store plugin prefs
+
+== Export API ==
+user->app: Trigger export
+
+activate plugin
+  plugin<->app: export:before
+  app-->scripts: Parse tokens + assets
+  scripts-->app: Finish parsing
+
+  alt export:after
+    plugin->app
+deactivate plugin
+  else Export to folder
+    app->user
+  end
+
+@enduml
